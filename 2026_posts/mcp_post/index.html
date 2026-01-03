@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>There's Gold in Them There CSV Files | Justin Del Vecchio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ub-blue: #005BBB;
+            --ub-blue-dark: #003d7a;
+            --ub-blue-light: #e8f1fa;
+            --ub-gold: #FFB81C;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555;
+            --text-muted: #888;
+            --bg-white: #ffffff;
+            --bg-light: #f8f9fa;
+            --border-light: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: var(--ub-blue);
+            color: white;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .ub-logo-link {
+            display: flex;
+            align-items: center;
+        }
+
+        .ub-logo {
+            height: 50px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .site-title {
+            font-family: 'Source Serif 4', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .site-title a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-title span {
+            color: var(--ub-gold);
+        }
+
+        .header-subtitle {
+            font-size: 0.85rem;
+            opacity: 0.85;
+            margin-top: 2px;
+        }
+
+        .header-nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        .header-nav a:hover {
+            opacity: 1;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        /* Article Layout */
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 40px;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--ub-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .back-link::before {
+            content: '← ';
+        }
+
+        /* Article Header */
+        .article-header {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-light);
+            background: transparent;
+        }
+
+        .article-header h1 {
+            font-family: 'Source Serif 4', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .article-meta .tag {
+            display: inline-block;
+            color: var(--text-primary);
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-left: 12px;
+        }
+
+        /* Article Content */
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .article-content p {
+            margin-bottom: 1.5em;
+        }
+
+        .article-content .lead {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #444;
+            font-style: italic;
+        }
+
+        .article-content h2 {
+            font-family: 'Source Serif 4', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 2em;
+            margin-bottom: 0.8em;
+            padding-top: 1em;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .article-content h3 {
+            font-family: 'Source Serif 4', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 1.5em;
+            margin-bottom: 0.6em;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin-bottom: 1.5em;
+            padding-left: 1.5em;
+        }
+
+        .article-content li {
+            margin-bottom: 0.5em;
+        }
+
+        .article-content a {
+            color: var(--ub-blue);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            color: var(--ub-blue-dark);
+        }
+
+        .article-content code {
+            background: var(--bg-light);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+        }
+
+        .article-content pre {
+            background: var(--text-primary);
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 1.5em;
+        }
+
+        .article-content pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+
+        .article-content blockquote {
+            background-color: #f9f9f9;
+            border-left: 4px solid var(--ub-gold);
+            padding: 16px 24px;
+            margin: 1.5em 0;
+            font-style: italic;
+            color: var(--text-muted);
+        }
+
+        .article-content blockquote p {
+            margin-bottom: 0;
+        }
+
+        .article-content .note {
+            background-color: var(--ub-blue-light);
+            border-left: 4px solid var(--ub-blue);
+            padding: 16px 20px;
+            margin: 1.5em 0;
+            font-size: 1rem;
+        }
+
+        .article-content .note p {
+            margin-bottom: 0;
+        }
+
+        .article-content .closing {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-top: 2em;
+            padding: 24px;
+            background: linear-gradient(135deg, #fef9e7 0%, #fdf2d0 100%);
+            border-radius: 8px;
+        }
+
+        .article-content .closing p {
+            margin-bottom: 0;
+        }
+
+        .article-content .references {
+            margin-top: 3em;
+            padding-top: 2em;
+            border-top: 2px solid var(--border-light);
+        }
+
+        .article-content .references h2 {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 0;
+        }
+
+        .article-content .references ol {
+            list-style-position: outside;
+            padding-left: 24px;
+        }
+
+        .article-content .references li {
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .article-content .references a {
+            word-break: break-all;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--ub-blue-dark);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.85rem;
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: var(--ub-gold);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive - Tablets */
+        @media (max-width: 900px) {
+            .header-content {
+                padding: 15px 20px;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-left {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .ub-logo {
+                height: 40px;
+            }
+
+            .header-nav {
+                margin-top: 15px;
+            }
+
+            .header-nav a {
+                margin: 0 15px;
+            }
+
+            .article-container {
+                padding: 30px 20px;
+            }
+
+            .article-header h1 {
+                font-size: 2rem;
+            }
+
+            .article-content .lead {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Responsive - Phones (stacked cards for table) */
+        @media (max-width: 650px) {
+            .project-table thead {
+                display: none;
+            }
+
+            .project-table,
+            .project-table tbody,
+            .project-table tr,
+            .project-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .project-table tr {
+                background: white;
+                border-radius: 8px;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+                margin-bottom: 16px;
+                padding: 16px;
+                border: 1px solid var(--border-light);
+            }
+
+            .project-table td {
+                padding: 8px 0;
+                border: none;
+                text-align: left;
+            }
+
+            .project-table td:first-child {
+                padding-bottom: 12px;
+                border-bottom: 1px solid var(--border-light);
+            }
+
+            .project-table td:nth-child(2) {
+                padding-top: 12px;
+                padding-bottom: 12px;
+            }
+
+            .project-table td:last-child {
+                padding-top: 12px;
+                border-top: 1px solid var(--border-light);
+                font-size: 0.85rem;
+            }
+
+            .project-table td:last-child::before {
+                content: "Dataset: ";
+                font-weight: 600;
+                color: var(--text-primary);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-left">
+                <a href="https://www.buffalo.edu/" class="ub-logo-link">
+                    <img src="https://www.buffalo.edu/content/www/brand/resources-tools/downloads/_jcr_content/par/image.img.209.auto.png/1660936569132.png" alt="University at Buffalo" class="ub-logo">
+                </a>
+                <div class="header-text">
+                    <div class="site-title"><a href="../../index.html">Justin Del Vecchio<span>.</span></a></div>
+                    <div class="header-subtitle">Institute for Artificial Intelligence & Data Science</div>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <a href="../../index.html">Home</a>
+                <a href="#">About</a>
+                <a href="#">Research</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <article class="article-container">
+        <a href="../../index.html" class="back-link">Back to all posts</a>
+
+        <header class="article-header">
+            <h1>There's Gold in Them There CSV Files</h1>
+            <div class="article-meta">
+                January 3, 2026 <span class="tag">AI</span>
+            </div>
+        </header>
+
+        <div class="article-content">
+            <p class="lead">What is the future of AI? Where—and on what—will the software engineers and data scientists we mint today be working in the next two to four years?</p>
+
+            <p>It won't be training the next massive LLM to finally achieve general AI. Hardly. Far from it.</p>
+
+            <p>The next two to four years will see the opposite: a series of smaller projects aimed at giving LLMs real predictive capability. Let me explain how my Fall 2025 Data Intensive Computing class clued me in to what the future will be. They created exactly what the future will look like—LLMs enabled by a technology called Model Context Protocol (MCP) to make custom-tailored AI insights for specific domains.</p>
+
+            <h2>The Background</h2>
+
+            <p>I keep up with my industry friends. Academia has one view of AI technologies; industry has quite another. A good friend, Andrew Sivadas, clued me into two things: agentic AI and MCP.</p>
+
+            <div class="note">
+                <p><strong>A note for my fellow programmers:</strong> if you haven't downloaded Claude Desktop and used it, stop what you're doing and look now. Don't make the misconception that it's like the web versions—it requires a completely different mindset.</p>
+            </div>
+
+            <p>So what is MCP? It's so simple, yet so unbelievably powerful. It's a way to integrate data sources with an LLM. Think of it as USB-C for AI applications—a standardized way for AI systems to access and interact with external data. If you want to dive deeper, Anthropic offers an excellent free course on it.</p>
+
+            <h2>How the Students Used It</h2>
+
+            <p>The semester-long project unfolded in three phases. First, students sourced and cleaned real-world datasets—wrangling missing values, normalizing schemas, and engineering features from raw CSVs and APIs. In the second phase, they built and validated machine learning pipelines using Apache Spark MLlib: training classifiers and regressors, tuning hyperparameters, and evaluating performance through cross-validation. The final phase was the integration point—students wrapped their trained models in MCP servers, exposing prediction endpoints that Claude Desktop could invoke. The result? Domain expertise becomes conversational. Here is a cross-section of what they built:</p>
+
+            <table class="project-table" style="width: 100%; border-collapse: collapse; margin: 2em 0; font-size: 0.95rem;">
+                <thead>
+                    <tr style="background: var(--ub-blue); color: white;">
+                        <th style="padding: 14px 16px; text-align: left; width: 40%;">Project Description</th>
+                        <th style="padding: 14px 16px; text-align: left; width: 40%;">User Question Asked to LLM</th>
+                        <th style="padding: 14px 16px; text-align: left; width: 20%;">Dataset</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: white; border-bottom: 1px solid var(--border-light);">
+                        <td style="padding: 16px;">
+                            <strong>Flight Delay Prediction</strong><br>
+                            Processes 5M+ U.S. domestic flights with weather integration. Gradient Boosted Trees classifier achieves 87% accuracy and 0.91 AUC.
+                        </td>
+                        <td style="padding: 16px; font-style: italic; color: var(--text-secondary);">
+                            "I am in Midway—I'm worried my Las Vegas flight will be delayed. Go find the forecasts and figure it out."
+                        </td>
+                        <td style="padding: 16px;">
+                            <a href="https://www.transtats.bts.gov/databases.asp?Z1qr_VQ=E&Z1qr_Qr5p=N8vn6v10&f7owrp6_VQF=D" target="_blank">Bureau of Transportation Statistics</a>
+                        </td>
+                    </tr>
+                    <tr style="background: var(--bg-light); border-bottom: 1px solid var(--border-light);">
+                        <td style="padding: 16px;">
+                            <strong>Hospital Readmission Risk</strong><br>
+                            Predicts 30-day readmission for diabetic patients using 68,629 patient records. Random Forest model achieves 0.94 AUC and 95% accuracy.
+                        </td>
+                        <td style="padding: 16px; font-style: italic; color: var(--text-secondary);">
+                            "I am looking to discharge this patient. What are the chances for a readmit in two weeks?"
+                        </td>
+                        <td style="padding: 16px;">
+                            <a href="https://archive.ics.uci.edu/dataset/296/diabetes+130-us+hospitals+for+years+1999-2008" target="_blank">UCI Diabetes 130-US Hospitals</a>
+                        </td>
+                    </tr>
+                    <tr style="background: white; border-bottom: 1px solid var(--border-light);">
+                        <td style="padding: 16px;">
+                            <strong>EV Energy Optimization</strong><br>
+                            Analyzes 118K driving records with OpenStreetMap road network data. Random Forest and Linear Regression predict energy consumption and speeding risk.
+                        </td>
+                        <td style="padding: 16px; font-style: italic; color: var(--text-secondary);">
+                            "My EV has this much charge. Here is where I'm going. Give me the route that conserves the most battery."
+                        </td>
+                        <td style="padding: 16px;">
+                            <a href="https://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> + EV Telemetry
+                        </td>
+                    </tr>
+                    <tr style="background: var(--bg-light); border-bottom: 1px solid var(--border-light);">
+                        <td style="padding: 16px;">
+                            <strong>Workplace Sentiment Analysis</strong><br>
+                            Integrates 85K+ Glassdoor reviews with ESG sustainability data. Logistic Regression and ensemble methods classify sentiment and predict workplace recommendations.
+                        </td>
+                        <td style="padding: 16px; font-style: italic; color: var(--text-secondary);">
+                            "What is the most prevalent type of complaint employees have about this company?"
+                        </td>
+                        <td style="padding: 16px;">
+                            <a href="https://www.glassdoor.com/Reviews/index.htm" target="_blank">Glassdoor Reviews</a> + <a href="https://www.msci.com/our-solutions/esg-investing" target="_blank">MSCI ESG</a>
+                        </td>
+                    </tr>
+                    <tr style="background: white;">
+                        <td style="padding: 16px;">
+                            <strong>Network Intrusion Detection</strong><br>
+                            Processes IoT-23 network traffic dataset for malware classification. Multi-stage pipeline with ML/DL models detects anomalous behavior across IP addresses.
+                        </td>
+                        <td style="padding: 16px; font-style: italic; color: var(--text-secondary);">
+                            "This network just pinged as anomalous. What is going on with these IPs?"
+                        </td>
+                        <td style="padding: 16px;">
+                            <a href="https://www.stratosphereips.org/datasets-iot23" target="_blank">IoT-23 Dataset</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>You see what's happening here? Each project represents a human deciding: <em>"This is the type of insight I need. Let me train, test, and validate a model for it."</em> The LLM didn't ingest this data—it calls upon these custom-trained, domain-specific models through MCP.</p>
+
+            <h2>The Paradigm Shift</h2>
+
+            <p>Here's what this architecture looks like in practice. A user asks a natural language question. The LLM receives it, recognizes the need for domain-specific prediction, and invokes the appropriate model through MCP. The model returns its answer, and the LLM contextualizes it for the user. The key insight? The LLM never needs to retrain. New capabilities simply plug in.</p>
+
+            <figure style="margin: 2em 0; text-align: center;">
+                <img src="mcp_diagram.png" alt="MCP Architecture Diagram showing User question flowing to LLM, which invokes MCP layer to connect with custom-trained models" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <figcaption style="margin-top: 12px; font-size: 0.9rem; color: var(--text-muted); font-style: italic;">The plug-and-play paradigm: LLMs invoke domain-specific models through MCP—no retraining required.</figcaption>
+            </figure>
+
+            <p>Now expand this paradigm out. Think of every organization that harbors or holds just CSV data—just that! The admissions history for a small parochial school. The sensor readings for a controller at a hospital. The sales records for an HVAC company. The purchases for a restaurant. Each one backed by a human with a specific need or question.</p>
+
+            <p>That's a lot of needs.</p>
+
+            <p>Once the LLM has the reply back from these custom models, it can fly. At that point, let the LLM contribute—it knows the context of the question, and it can amplify. It can even connect it with other custom models.</p>
+
+            <h2>The Future is Micro</h2>
+
+            <p>The future is micro. The future is custom.</p>
+
+            <p>The LLMs can keep growing, but the most growth will be humans plugging in more predictive services. The real opportunity isn't in building the next foundation model—it's in connecting the mountains of domain-specific data that already exist in every organization to the intelligence layer that LLMs provide.</p>
+
+            <div class="closing">
+                <p><strong>There's gold in them there CSVs.</strong> And my students just showed me how to mine it.</p>
+            </div>
+
+            <div class="references">
+                <h2>References</h2>
+                <ol>
+                    <li>
+                        <strong>Model Context Protocol Documentation</strong> — Anthropic's official MCP guide<br>
+                        <a href="https://docs.anthropic.com/en/docs/agents-and-tools/mcp" target="_blank">https://docs.anthropic.com/en/docs/agents-and-tools/mcp</a>
+                    </li>
+                    <li>
+                        <strong>Introducing the Model Context Protocol</strong> — Anthropic's announcement post<br>
+                        <a href="https://www.anthropic.com/news/model-context-protocol" target="_blank">https://www.anthropic.com/news/model-context-protocol</a>
+                    </li>
+                    <li>
+                        <strong>MCP GitHub Repository</strong> — Open-source protocol and SDKs<br>
+                        <a href="https://github.com/modelcontextprotocol" target="_blank">https://github.com/modelcontextprotocol</a>
+                    </li>
+                    <li>
+                        <strong>Introduction to Model Context Protocol</strong> — Free course from Anthropic<br>
+                        <a href="https://anthropic.skilljar.com/introduction-to-model-context-protocol" target="_blank">https://anthropic.skilljar.com/introduction-to-model-context-protocol</a>
+                    </li>
+                    <li>
+                        <strong>Getting Started with MCP on Claude Desktop</strong> — Setup guide<br>
+                        <a href="https://support.anthropic.com/en/articles/10949351-getting-started-with-model-context-protocol-mcp-on-claude-for-desktop" target="_blank">https://support.anthropic.com/en/articles/10949351-getting-started-with-model-context-protocol-mcp-on-claude-for-desktop</a>
+                    </li>
+                    <li>
+                        <strong>Download Claude Desktop</strong><br>
+                        <a href="https://claude.com/download" target="_blank">https://claude.com/download</a>
+                    </li>
+                    <li>
+                        <strong>AI Agents with Claude</strong> — Overview of agentic AI capabilities<br>
+                        <a href="https://claude.com/solutions/agents" target="_blank">https://claude.com/solutions/agents</a>
+                    </li>
+                    <li>
+                        <strong>Building Agents with the Claude Agent SDK</strong> — Engineering deep-dive<br>
+                        <a href="https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk" target="_blank">https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <a href="https://www.buffalo.edu/">
+            <img src="https://www.buffalo.edu/v-e541efb31faa2518c910054a542e1234/etc.clientlibs/wci/components/block/fatfooter/clientlibs/resources/ub-logo-one-line.png" alt="University at Buffalo" style="height: 40px; margin-bottom: 15px;">
+        </a>
+        <p>© 2026 Justin Del Vecchio | <a href="https://www.buffalo.edu/ai-data-science.html">Institute for Artificial Intelligence & Data Science</a></p>
+    </footer>
+</body>
+</html>

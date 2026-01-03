@@ -1,0 +1,204 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, fit, backgrounds, calc, decorations.pathreplacing}
+\usepackage{fontawesome5}
+\usepackage{xcolor}
+
+% Define colors
+\definecolor{ubblue}{HTML}{005BBB}
+\definecolor{ubgold}{HTML}{FFB81C}
+\definecolor{mcpgreen}{HTML}{10B981}
+\definecolor{modelviolet}{HTML}{8B5CF6}
+\definecolor{lightgray}{HTML}{F3F4F6}
+\definecolor{darktext}{HTML}{1F2937}
+
+\begin{document}
+\begin{tikzpicture}[
+    scale=1.25, transform shape,
+    node distance=1.5cm,
+    >={Stealth[length=3mm]},
+    every node/.style={font=\sffamily\fontsize{11.2}{13.4}\selectfont},
+    box/.style={
+        rectangle,
+        rounded corners=8pt,
+        minimum width=3.2cm,
+        minimum height=1.4cm,
+        align=center,
+        font=\sffamily\bfseries
+    },
+    userbox/.style={
+        box,
+        fill=ubblue!10,
+        draw=ubblue,
+        line width=1.5pt,
+        text=darktext
+    },
+    llmbox/.style={
+        box,
+        fill=ubblue,
+        text=white,
+        minimum width=4cm,
+        minimum height=2cm
+    },
+    mcpbox/.style={
+        box,
+        fill=mcpgreen!15,
+        draw=mcpgreen,
+        line width=2pt,
+        minimum width=10cm,
+        minimum height=1.2cm,
+        text=mcpgreen!80!black
+    },
+    modelbox/.style={
+        box,
+        fill=modelviolet!15,
+        draw=modelviolet,
+        line width=1.5pt,
+        minimum width=2.4cm,
+        minimum height=1.8cm,
+        text=darktext
+    },
+    plugstyle/.style={
+        circle,
+        fill=ubgold,
+        draw=ubgold!70!black,
+        line width=1pt,
+        minimum size=0.5cm
+    },
+    flowlabel/.style={
+        font=\sffamily\small,
+        text=darktext
+    }
+]
+
+% User
+\node[userbox] (user) at (0, 0) {
+    \Large\faUser\\[2pt]
+    \normalsize User
+};
+
+% LLM
+\node[llmbox, right=5cm of user] (llm) {
+    \Large\faBrain\\[3pt]
+    \normalsize LLM\\
+    \footnotesize\normalfont (Claude)
+};
+
+% Question (left of user, top)
+\node[
+    left=1.5cm of user,
+    yshift=0.8cm,
+    font=\sffamily\itshape\small,
+    text width=5.5cm,
+    align=right,
+    text=darktext
+] (question) {
+    ``What are the chances my flight is delayed?''
+};
+\draw[->, line width=1.5pt, ubblue] (question.east) -- ++(0.5, 0) |- ($(user.west)+(0, 0.3)$);
+
+% Answer (left of user, bottom)
+\node[
+    left=1.5cm of user,
+    yshift=-0.8cm,
+    font=\sffamily\small,
+    text width=5.5cm,
+    align=right,
+    text=ubgold!80!black
+] (answer) {
+    \textbf{82\% chance of delay.} Typically you will wait 3 hours but will get out tonight.
+};
+\draw[->, line width=1.5pt, ubgold] ($(user.west)+(0, -0.3)$) -- ++(-0.5, 0) |- (answer.east);
+
+% Main flow - User to LLM
+\draw[->, line width=2pt, ubblue] (user) -- (llm);
+
+% MCP Layer
+\node[mcpbox, below=2cm of llm] (mcp) {
+    \faPlug\quad MCP Layer \quad\faPlug
+};
+
+% Subtitle for MCP
+\node[below=0.1cm of mcp, font=\sffamily\footnotesize\itshape, text=mcpgreen!70!black] {
+    Standardized Protocol — No Retraining Required
+};
+
+% Custom Models - arranged below MCP
+\node[modelbox, below=2cm of mcp, xshift=-3.5cm] (model1) {
+    \footnotesize\faPlane\\[2pt]
+    \scriptsize\bfseries Flight\\[-1pt]
+    \scriptsize\bfseries Delay
+};
+
+\node[modelbox, below=2cm of mcp, xshift=0cm] (model2) {
+    \footnotesize\faHospital\\[2pt]
+    \scriptsize\bfseries Hospital\\[-1pt]
+    \scriptsize\bfseries Readmit
+};
+
+\node[modelbox, below=2cm of mcp, xshift=3.5cm] (model3) {
+    \footnotesize\faCar\\[2pt]
+    \scriptsize\bfseries EV\\[-1pt]
+    \scriptsize\bfseries Energy
+};
+
+% Plug connectors on models
+\node[plugstyle] at ($(model1.north)$) {};
+\node[plugstyle] at ($(model2.north)$) {};
+\node[plugstyle] at ($(model3.north)$) {};
+
+% Ellipsis for more models
+\node[right=0.8cm of model3, font=\Huge, text=modelviolet] {...};
+
+% Dotted box around models to show "plug-n-play zone"
+\begin{scope}[on background layer]
+    \node[
+        fit=(model1)(model2)(model3),
+        rectangle,
+        rounded corners=12pt,
+        fill=lightgray,
+        inner sep=15pt,
+        xshift=0.8cm
+    ] (modelzone) {};
+\end{scope}
+
+% Label for model zone
+\node[
+    above left=0.2cm and -1cm of modelzone.south east,
+    font=\sffamily\bfseries\small,
+    text=modelviolet
+] {Custom-Trained Models};
+
+\node[
+    below=0.1cm of modelzone.south,
+    font=\sffamily\footnotesize\itshape,
+    text=darktext!70
+] {Plug in new capabilities without touching the LLM};
+
+% Arrow - LLM to MCP
+\draw[->, line width=2pt, ubblue] (llm.south) -- node[right, flowlabel, xshift=2pt] {invokes} (llm.south |- mcp.north);
+
+% Bold line to Flight Delay (active connection)
+\draw[<->, line width=3pt, ubblue] (mcp.south) -- ++(0, -0.5) -| (model1.north);
+
+% Other model connections (thinner)
+\draw[->, line width=1.5pt, mcpgreen] (mcp.south) -- (model2.north);
+\draw[->, line width=1.5pt, mcpgreen] (mcp.south) -- ++(0, -0.5) -| (model3.north);
+
+
+% Big emphasis box - "THE KEY INSIGHT"
+\node[
+    below=0.5cm of modelzone,
+    rectangle,
+    rounded corners=6pt,
+    fill=ubgold!20,
+    draw=ubgold,
+    line width=1.5pt,
+    inner sep=10pt,
+    font=\sffamily
+] (insight) {
+    \textbf{The LLM never retrains.} New models plug in. Domain expertise scales.
+};
+
+\end{tikzpicture}
+\end{document}
