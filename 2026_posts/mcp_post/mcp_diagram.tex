@@ -17,7 +17,7 @@
     scale=1.25, transform shape,
     node distance=1.5cm,
     >={Stealth[length=3mm]},
-    every node/.style={font=\sffamily\fontsize{11.2}{13.4}\selectfont},
+    every node/.style={font=\sffamily\fontsize{16}{19}\selectfont},
     box/.style={
         rectangle,
         rounded corners=8pt,
@@ -78,7 +78,7 @@
 };
 
 % LLM
-\node[llmbox, right=5cm of user] (llm) {
+\node[llmbox, right=3cm of user] (llm) {
     \Large\faBrain\\[3pt]
     \normalsize LLM\\
     \footnotesize\normalfont (Claude)
@@ -164,7 +164,8 @@
 
 % Label for model zone
 \node[
-    above left=0.2cm and -1cm of modelzone.south east,
+    at=(modelzone.center),
+    yshift=-2.2cm,
     font=\sffamily\bfseries\small,
     text=modelviolet
 ] {Custom-Trained Models};
@@ -188,16 +189,18 @@
 
 % Big emphasis box - "THE KEY INSIGHT"
 \node[
-    below=0.5cm of modelzone,
+    left=0.8cm of modelzone,
     rectangle,
     rounded corners=6pt,
     fill=ubgold!20,
     draw=ubgold,
     line width=1.5pt,
-    inner sep=10pt,
-    font=\sffamily
+    inner sep=12pt,
+    font=\sffamily,
+    text width=4.5cm,
+    align=center
 ] (insight) {
-    \textbf{The LLM never retrains.} New models plug in. Domain expertise scales.
+    \textbf{The LLM never retrains.}\\[4pt] New models plug in.\\[4pt] Domain expertise scales.
 };
 
 \end{tikzpicture}
