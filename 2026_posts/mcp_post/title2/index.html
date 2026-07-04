@@ -10,18 +10,20 @@ The LaTeX community has banded together to solve many of the accessibility taggi
 
 Imagine you are a professor with dozens or 100s of LaTeX beamer presenations.  You options are not promising.  You may switch to another format supported by LaTeX called ltktalk or switch entirely to another typesetting environment called typst.  Neither is a silver bullet solution and requires a great deal of manual effort.  Here, silver bullet would be "Change this one line, add this pacakge, and presto, the document is Title II compliant."  This is somewhat how tagpdf works.
 
-Here, certainly, is an opprotunity for AI and LLMs to come to the resuce.  A legitimate, real, and useful opportunity!  This idea was develpoed collarboratively with my researcher Sushrut Gaikwad.  Anyone who needs an AI and math savvy researcher or employee, you can find no fine.
+Human Guided AI Remediation
+
+Here, certainly, is an opprotunity for AI and LLMs to come to the rescue.  A legitimate, real, and useful opportunity!  This idea was developed collarboratively with my researcher Sushrut Gaikwad.  Anyone who is in need an AI and math savvy researcher or employee, you can find no finer than Sushrut.
 
 Here is the idea:
 
-1. We utilize LangGraph.  This framework has the potential (just potential right now, the next few years will be telling) to allow visual program development as graph stuctures.
-2. We define a graph structure that allows the use to point to a directory of beamer files.
-3. The graph nodes represent computation steps.  The first set of steps prepares the beamer files for AI and LLM processing.
-4. There is a critical step that introduces an node that includes an LLM agent.  THe choice of agent is your choices, and uses OpenRouter (note, this is the part where you will have a API key for one of the LLMs.  A key with $10 of funds will be more than enough to expeirment with, probably too much.)
-5. This step translates a beamer document into a (hoepfully) equivalent typst document.  The step can be tuned so it is computationally repeatable; given the same beamer document, the same typst document is output.
-6. There are steps for manual intervention as well.  The use gets an opportunity to look at each slide created and make changes where they feel it is warranted.
+1. We utilize LangGraph.  This framework has the potential (just potential right now, the next few years will be telling) to allow program development as graph stuctures.
+2. We define a graph structure that allows the user to point to a directory of beamer files as input.  Its output node (ideally) provides typst equivalent files.  typst has the same terrific typsetting qualities of LaTeX but natively generates Title II compliant PDFs.
+3. The graph nodes represent computation steps.  This of each node as its own software program.  The first set of nodes prepares the beamer files for AI and LLM processing.
+4. There is a critical node that includes an LLM agent.  THe choice of agent is yours! It uses OpenRouter.  Note, this is the part where you will need an API key for one of the LLMs.  A key with $10 of funds will be more than enough to expeirment with, probably too much.  
+5. This LLM node translates a beamer document into an (hoepfully) equivalent typst document.  The step can be tuned so it is computationally repeatable; given the same beamer document, the same typst document is output.
+6. There are steps for manual intervention as well.  Users are an equal partner in this endeavor.  They get an opportunity to look at each slide created.  They make changes where they feel it is warranted.  Also, there may be errors in the conversion process.  Users will need to fix these.
 
-The project is offered as open source with an Apache license.  It is not perfect.  It has issues and at times requires a good deal of manual intervention.  However, it is getting better.  It is also a start, and we welcome any feedback or assistance from anyone who wishese to help out.
+The project is offered as open source with an Apache license.  It is not perfect.  It has issues.  At times it requires a good deal of manual intervention.  However, it is continually getting better.  It is also a start.  Out team welcomes any feedback or assistance from anyone who wishese to help out.  Also, if you wish to learn LangGraph with a challenging application, this is a perfect challenge.
 
 As updates are warranted, we will do more posts!
 
@@ -47,3 +49,7 @@ References:
 | **ltxtalk Document Class**                   | [https://ctan.org/pkg/ltxtalk](https://ctan.org/pkg/ltxtalk)                                                         |
 | **Typst**                                    | [https://typst.app/](https://typst.app/)                                                                             |
 | **Typst Documentation**                      | [https://typst.app/docs/](https://typst.app/docs/)                                                                   |
+
+| Resource                                                                        | URL                                                                                      |
+| ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| **Sushrut Ishwar Gaikwad – LinkedIn (University at Buffalo AI & Data Science)** | [https://www.linkedin.com/in/sushrutgaikwad](https://www.linkedin.com/in/sushrutgaikwad) |
