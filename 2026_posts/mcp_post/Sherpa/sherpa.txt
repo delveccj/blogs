@@ -1,1 +1,5 @@
+Chat Agents: Unwitting Guides in a Quest for Knowledge
+
+This blog was inspired by all the folks who use chat agents the incorrect way when learning a concept.  Or better, the dangerous way.  One should use LLMs and chat agents warily.  They should be a last resort, consulted only after a person has tried to learn as much as possible indepedendently.  Only after having a decent mental model should the chat agent be brought into the fray.
+
 
