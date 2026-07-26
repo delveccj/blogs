@@ -1,3 +1,8 @@
 U.S. Steels Decline Explains Why You Need to Adopt AI
 
 Odd right? What possibly could the decline of an industry over 50 years agos teach people today about the need to adpot AI tofsy?  Plenty.  A Bethlehem engineer in the 1980s succinctly described steels decline this way; "We were making evolutionary changes when a technological revolution was going on."  Most of this post's observations come from the outstanding book "Crisis in Bethlehem." [1]. Anyone who has interest in technology, labor, tariffs, industry, pretty much every aspect of how we live today ought to give it a read.  It documents the downfall of Bethlehem Stell with deailed accounts of decline from post-WWII through 1986.   
+
+Historical Perspective
+The steel industry was the economic force in the United States post WWII.  It accounted for x% of the economy in 1948.  It provided the raw material that flowed to virtually every U.S. industry.  Automotive, appliances, highway infrastucture, bridge and building construction all the way down to barbed wire and nails.  If it was made of steel and was for sale in the U.S. in 1948, xx% of it came from U.S. steel plants.  U.S. steel dominated. No company was as synonomous with steel as was Bethlehem Steel.
+
+In 1958 Bethlehem steel was the worlds second largest steel 
