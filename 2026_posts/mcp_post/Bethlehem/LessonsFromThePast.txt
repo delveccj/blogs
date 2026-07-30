@@ -5,4 +5,16 @@ Odd right? What possibly could the decline of an industry over 50 years agos tea
 Historical Perspective
 The steel industry was the economic force in the United States post WWII.  It accounted for x% of the economy in 1948.  It provided the raw material that flowed to virtually every U.S. industry.  Automotive, appliances, highway infrastucture, bridge and building construction all the way down to barbed wire and nails.  If it was made of steel and was for sale in the U.S. in 1948, xx% of it came from U.S. steel plants.  U.S. steel dominated. No company was as synonomous with steel as was Bethlehem Steel.
 
-In 1958 Bethlehem steel was the worlds second largest steel producer in the U.S. and therefore the world.  They dominated the industry and produced xx % of U.S. steel.  By 1986, less than 30 years, 
+In 1958 Bethlehem steel was the world’s second largest steel producer in the U.S. and therefore the world.  They dominated the industry and produced xx % of U.S. steel.  By 1986, less than 30 years, their dominance was over with integrated steel mills closing in the U.s.  From one of the most revered management teams to a company that was finished.  How did this happen?  Three reasons sum it up.  Read on.
+
+Failure to Accept Steel Making Innovations
+
+
+Japan and Europe were in receipt of U.S. aid to reconstruct from the devastation of WWII.  This enabled the steel industry in these countries to adopt innovative technologies.  True, their percentage of steel production was minimal compared to the U.S.  But the processes and technologies they adopted in the late 1940s and 1950s were the state of the art.  The demise of U.S. steel dominance was seeded in these years.
+
+There were voices in Bethlehem steel that sought out innovation, that attempted to begin initiatives to innovate.  But they always fizzled out.  A perfect example is continuous casting.  Continuous casting is a steelmaking process in which molten steel is poured into a water-cooled mold and continuously withdrawn as a solidifying strand, rather than first being cast into large ingots that must later be reheated and rolled. [1]
+
+Bethlehem steel realized this was an innovative process.  In fact, they performed a proof of concept at the 
+
+References
+[1] ChaGPT on 28 July with the prompt: “what is it continuous casting and why was it innovative.”
