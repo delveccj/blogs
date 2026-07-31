@@ -16,5 +16,22 @@ There were voices in Bethlehem steel that sought out innovation, that attempted 
 
 Bethlehem steel realized this was an innovative process.  In fact, they performed a proof of concept at the 
 
+Lesson 1: Accept New Technology As Soon As Possible
+Audience:  All of Industry and Academia
+Dangerous, right? Why would one ever do that.  Continuous casting.  Overconfidence was the demise.
+How many companies have done pilot projects.  Not dug enough. Not tried again and again.
+
+Lesson 2: Be Nimble and Seek Efficiencies Everywhere
+Audience:  The AI Beheamoths - Be Warned!
+
+Those NVIDA boxes - they are going to invert this.  
+
+Lesson 3: Accept that Labor Allocations Will Change Dramatically
+Audience: Everyone
+
+Not compettive  - WTC example.  153M vs. 80M.  Not a team - a composable team.  Roles and people are not looking for projects to consume their time.  Rather, there are projects, and teams are composable and for many software engineering projects the teams are ephemeral and the volume of labor will go up and down. A lot.
+
+
+
 References
 [1] ChaGPT on 28 July with the prompt: “what is it continuous casting and why was it innovative.”
