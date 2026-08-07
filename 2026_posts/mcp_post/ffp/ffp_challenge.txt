@@ -1,6 +1,29 @@
 How the Government Could Use FFP to Spur True Agentic AI Innovation
 
-Odd right?  A firm fixed price contract could be the catalyst to spur agentic AI growth.  It certainly could (and probably will!). Here is how.
+Odd right?  A firm fixed price contract could be the catalyst to spur agentic AI growth.  It certainly could (and probably will!). Here is how.  Note, it could literally lead to a switch from the request for proposal model (tell us what you can do to solve a problem at your price) to firm fixed price (here is what we want, exactly, specifically at this set price).
 
-The U.S. government has long procured software with a variety of contract vehicle.  Cost plus fixed fee, time and materials, direct purchase, and firm fixed price.   A neat experiment would be the following.  It could literally lead to a switch from the request for proposal model (tell us what you can do at your price) to firm fixed price (here is what we want, exactly, specifically at this set price).
+All that is needed is a set of open source, unclassified FFP projects defined as follows:
+
+- Provide an open source data set of interest,
+- Provide a set of use cases and requirements for software that uses the data,
+- Provide a cloud environment,
+- Provide a limited budget via OpenRouter,
+- Publish an API and interfaces,
+- Publish a set of unit and functional tests,
+- Provide a target deployment environment (this hardware, processor, etc.)
+- Provide target performance metrics,
+- Provide security tests and harnesses, and 
+- Provide a hidden evaluation set.
+
+The last piece of the puzzle, provide the firm fixed price.  But make the price very budget conscious.  Ridiculously budget conscious.  If an engineering team were to look at the requirements and say "We could not possibly do this for less than $250K even with agentic AI." - then set the price at $75k.  Set it low.  Very low.
+
+Why?  The agentic AI tools exist to streamline software development.  The results are there.  This is motivation to truly streamlines and innovates their use. It's about motivating engineers to do more, to do better.
+
+Imagine the best engineers you know.  This is the carrot to motivate them.  'Are you really that good?' is the question posed to them.  Could a team a two or three engineers take agentic AI, create skills, apply them successfully and get a solution up and running in five weeks where they each get $25K?  If they perform at peak efficiency for just 20 weeks of the year - they would net $200K.
+
+Tell me this would not stimulate innovation of how to use and apply agentic AI tools.  The potential is there, but the model to incentivize what could be done really does not exist yet. 
+
+Genesis of Idea
+
+
 
