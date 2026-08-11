@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>How the Government Could Use Prize Challenges to Spur True Agentic AI Innovation | Justin Del Vecchio</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&amp;family=DM+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --ub-blue: #005BBB;
+            --ub-blue-dark: #003d7a;
+            --ub-blue-light: #e8f1fa;
+            --ub-gold: #FFB81C;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555;
+            --text-muted: #888;
+            --bg-white: #ffffff;
+            --bg-light: #f8f9fa;
+            --border-light: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: var(--ub-blue);
+            color: white;
+            padding: 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .ub-logo-link {
+            display: flex;
+            align-items: center;
+        }
+
+        .ub-logo {
+            height: 50px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .site-title {
+            font-family: 'Source Serif 4', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .site-title a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-title span {
+            color: var(--ub-gold);
+        }
+
+        .header-subtitle {
+            font-size: 0.85rem;
+            opacity: 0.85;
+            margin-top: 2px;
+        }
+
+        .header-nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        .header-nav a:hover {
+            opacity: 1;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        /* Article Layout */
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 40px;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--ub-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .back-link::before {
+            content: '\2190 ';
+        }
+
+        /* Article Header */
+        .article-header {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-light);
+            background: transparent;
+        }
+
+        .article-header h1 {
+            font-family: 'Source Serif 4', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .article-meta .tag {
+            display: inline-block;
+            background: var(--ub-blue);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+
+        /* Article Content */
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .article-content p {
+            margin-bottom: 1.5em;
+        }
+
+        .article-content .lead {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #444;
+            font-style: italic;
+        }
+
+        .article-content h2 {
+            font-family: 'Source Serif 4', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 2em;
+            margin-bottom: 0.8em;
+            padding-top: 1em;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .article-content h3 {
+            font-family: 'Source Serif 4', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 1.5em;
+            margin-bottom: 0.6em;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin-bottom: 1.5em;
+            padding-left: 1.5em;
+        }
+
+        .article-content li {
+            margin-bottom: 0.5em;
+        }
+
+        .article-content a {
+            color: var(--ub-blue);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            color: var(--ub-blue-dark);
+        }
+
+        .article-content code {
+            background: var(--bg-light);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+        }
+
+        .article-content pre {
+            background: var(--text-primary);
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 1.5em;
+        }
+
+        .article-content pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+
+        .article-content blockquote {
+            background-color: #f9f9f9;
+            border-left: 4px solid var(--ub-gold);
+            padding: 16px 24px;
+            margin: 1.5em 0;
+            font-style: italic;
+            color: var(--text-muted);
+        }
+
+        .article-content blockquote p {
+            margin-bottom: 0;
+        }
+
+        .article-content .note {
+            background-color: var(--ub-blue-light);
+            border-left: 4px solid var(--ub-blue);
+            padding: 16px 20px;
+            margin: 1.5em 0;
+            font-size: 1rem;
+        }
+
+        .article-content .note p {
+            margin-bottom: 0;
+        }
+
+        .article-content .closing {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-top: 2em;
+            padding: 24px;
+            background: linear-gradient(135deg, #fef9e7 0%, #fdf2d0 100%);
+            border-radius: 8px;
+        }
+
+        .article-content .closing p {
+            margin-bottom: 0;
+        }
+
+        .article-content sup a {
+            font-size: 0.8em;
+            text-decoration: none;
+            color: var(--ub-blue);
+        }
+
+        .article-content sup a:hover {
+            text-decoration: underline;
+        }
+
+        .article-content .references {
+            margin-top: 3em;
+            padding-top: 2em;
+            border-top: 2px solid var(--border-light);
+        }
+
+        .article-content .references h2 {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 0;
+        }
+
+        .article-content .references ol {
+            list-style-position: outside;
+            padding-left: 24px;
+        }
+
+        .article-content .references li {
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .article-content .references a {
+            word-break: break-all;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--ub-blue-dark);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.85rem;
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: var(--ub-gold);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive - Tablets */
+        @media (max-width: 900px) {
+            .header-content {
+                padding: 15px 20px;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-left {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .ub-logo {
+                height: 40px;
+            }
+
+            .header-nav {
+                margin-top: 15px;
+            }
+
+            .header-nav a {
+                margin: 0 15px;
+            }
+
+            .article-container {
+                padding: 30px 20px;
+            }
+
+            .article-header h1 {
+                font-size: 2rem;
+            }
+
+            .article-content .lead {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+<div class="header-content">
+<div class="header-left">
+<a class="ub-logo-link" href="https://www.buffalo.edu/">
+<img alt="University at Buffalo" class="ub-logo" src="https://www.buffalo.edu/content/www/brand/resources-tools/downloads/_jcr_content/par/image.img.209.auto.png/1660936569132.png"/>
+</a>
+<div class="header-text">
+<div class="site-title"><a href="../../index.html">Justin Del Vecchio<span>.</span></a></div>
+<div class="header-subtitle">Computer Science and Engineering</div>
+</div>
+</div>
+<nav class="header-nav">
+<a href="../../index.html">Home</a>
+<a href="#">About</a>
+<a href="#">Research</a>
+<a href="../../index.html#contact">Contact</a>
+</nav>
+</div>
+</header>
+<article class="article-container">
+<a class="back-link" href="../../index.html">Back to all posts</a>
+<header class="article-header">
+<h1>How the Government Could Use Prize Challenges to Spur True Agentic AI Innovation</h1>
+<div class="article-meta">
+                August 10, 2026
+                <span class="tag">AI</span>
+<span class="tag">Agentic AI</span>
+</div>
+</header>
+<div class="article-content">
+<p>Prize-based acquisition to stimulate innovation isn't new. Federal agencies have had broad prize competition authority since the America COMPETES Reauthorization Act of 2010.<sup><a href="#ref-1">[1]</a></sup> MITRE has argued for years that challenge-based acquisition can outperform the traditional single-performer RFP model in some settings.<sup><a href="#ref-2">[2]</a></sup> NASA's Center of Excellence for Collaborative Innovation has run crowdsourced problem-solving for over a decade.<sup><a href="#ref-3">[3]</a></sup> And DARPA's AI Cyber Challenge just proved, at real scale, that a government-run AI prize competition can produce working autonomous software.<sup><a href="#ref-4">[4]</a></sup> This post is about a variable those programs weren't designed to test: the price. What I want to propose is setting the prize deliberately below what a conventional bid would cost — and using that gap to find out what agentic AI teams can actually do.</p>
+<h2>The Pilot Project</h2>
+<p>Here is the setup. The government establishes a pilot project. The project contains a set of open source, unclassified software needs framed as prize challenges. The needs are defined by government analysts and software engineers. At a minimum, each challenge would contain:</p>
+<ul>
+<li>An open source data set of interest (at least initially),</li>
+<li>A set of use cases and requirements for software that uses the data,</li>
+<li>A cloud environment developers may work in,</li>
+<li>A limited budget via OpenRouter for any model developers wish to use,</li>
+<li>An API and interfaces for the developed software,</li>
+<li>A set of unit and functional tests,</li>
+<li>A target deployment environment (the hardware, processor, etc.) where the finished product will live,</li>
+<li>Target performance metrics,</li>
+<li>Security tests and harnesses, and</li>
+<li>A hidden evaluation set to test against.</li>
+</ul>
+<p>Here's the last piece: the prize, set deliberately low. If the honest estimate is $250K even with agentic AI, the prize is $150K — 40% under.<sup><a href="#footnote-dagger" title="Historical inspiration">†</a></sup> It's an intentionally aggressive starting point that establishes a reward meaningfully below the conventional cost estimate — low enough that winning likely requires a different production method rather than merely a cheaper conventional bid.</p>
+<p>That's not the standard "prizes are cheaper than contracts" argument. This is a narrower, specific bet: that agentic AI has already cut the cost of building working software by more than the market has priced in.  The fastest way to find out by how much is to dare a team to prove it under a number that makes conventional estimators uncomfortable. Note, the pilot projects really need to have those attributes listed above well-defined and clear!</p>
+<p>This sort of looks like a firm-fixed-price (FFP) contract, but it isn't. Under FAR 16.202-1, an FFP contract establishes a price that is not adjusted based on the contractor's cost experience, placing responsibility for cost, profit, and loss on the contractor.<sup><a href="#ref-5">[5]</a></sup> Here, teams do the work before they know they'll be paid — the government pays for demonstrated success, not a promise to perform.</p>
+<p>Another benefit: the government doesn't need to predict which kind of organization can build the software — a prime contractor, a startup, a university lab, or three engineers who've never worked together but know how to orchestrate agentic AI well. Traditional development carries the cost structure of whoever delivers it: management, overhead, proposal teams. A prize challenge lets a completely different production model compete on the same terms, and the tests — not the pedigree — decide who wins.</p>
+<h2>A Cheaper Experiment</h2>
+<p>AIxCC is probably the closest precedent to what is proposed above. DARPA spent two years and offered a cumulative $29.5M in prizes asking whether AI could autonomously find and patch vulnerabilities — a genuinely open capability question, funded generously because the answer was unknown.<sup><a href="#ref-4">[4]</a></sup></p>
+<p>This pilot points the other way. It doesn't fund a team generously to push the frontier; it sets an intentionally aggressive prize against any type of problem, from researchy to the mundane. It just needs a well-understood requirement that enables people to see what they can do with AI that already exists. This tests the labor model — and it's a cheap experiment to run, since it needs no multi-year program, just an agency willing to set an aggressive reward and see who shows up.</p>
+<p>The prize authority already exists. The technology already exists. What's missing is an agency willing to set the number lower than conventional estimates suggest is reasonable, and find out who was right.</p>
+<div class="closing">
+<p>If you have read this far, you have probably met or managed a bunch of creative engineers who thrive in constrained environments. They typically make it work. My bet? These same people would make this approach sing.</p>
+</div>
+<div class="references footnotes"><h2>Footnotes</h2><ol style="list-style: none; padding-left: 0;"><li id="footnote-dagger"><strong>†</strong> The 40% example was partially inspired by John Strohmeyer’s <em>Crisis in Bethlehem: Big Steel’s Struggle to Survive</em> (Adler &amp; Adler, 1986). Bethlehem Steel’s steel-fabricating arm submitted the low bid—approximately $117 million—for structural-steel fabrication associated with the World Trade Center towers. The New York Port Authority believed the price was too high, despite Bethlehem being the lowest bidder, and rejected it. The work was then divided into six smaller bids with tightly defined descriptions of what was required. This led to the work being accomplished at $83M, roughly 40% less.  This was not a prize-based acquisition, but the episode helped inspire the idea in this post: changing the structure of the competition can invite different teams and different production models to solve the same problem.</li></ol></div><div class="references">
+<h2>References</h2>
+<ol><li id="ref-1"><strong>America COMPETES Reauthorization Act of 2010 (P.L. 111-358)</strong> — authorized the head of any federal agency to carry out prize competitions to stimulate innovation<br/><a href="https://www.congress.gov/bill/111th-congress/house-bill/5116" rel="noopener noreferrer" target="_blank">https://www.congress.gov/bill/111th-congress/house-bill/5116</a></li><li id="ref-2"><strong>More Innovation, Better Results: Prizes and Challenge-Based Acquisition</strong> — The MITRE Corporation, December 6, 2016<br/><a href="https://www.mitre.org/news-insights/publication/more-innovation-better-results-prizes-and-challenge-based-acquisition" rel="noopener noreferrer" target="_blank">https://www.mitre.org/news-insights/publication/more-innovation-better-results-prizes-and-challenge-based-acquisition</a></li><li id="ref-3"><strong>Collaborate with CoECI: Federal Agencies</strong> — NASA Center of Excellence for Collaborative Innovation<br/><a href="https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/center-of-excellence-for-collaborative-innovation-coeci/federal-agencies/" rel="noopener noreferrer" target="_blank">https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/center-of-excellence-for-collaborative-innovation-coeci/federal-agencies/</a></li><li id="ref-4"><strong>AI Cyber Challenge Marks Pivotal Inflection Point for Cyber Defense</strong> — DARPA, August 8, 2025; see also the DARPA AIxCC program page for the cumulative $29.5M prize figure<br/><a href="https://www.darpa.mil/news/2025/aixcc-results" rel="noopener noreferrer" target="_blank">https://www.darpa.mil/news/2025/aixcc-results</a><br/><a href="https://www.darpa.mil/research/programs/ai-cyber" rel="noopener noreferrer" target="_blank">https://www.darpa.mil/research/programs/ai-cyber</a></li><li id="ref-5"><strong>FAR 16.202-1 — Firm-Fixed-Price Contracts, Description</strong> — Federal Acquisition Regulation<br/><a href="https://www.acquisition.gov/far/16.202-1" rel="noopener noreferrer" target="_blank">https://www.acquisition.gov/far/16.202-1</a></li></ol>
+</div>
+</div>
+</article>
+<footer>
+<a href="https://www.buffalo.edu/">
+<img alt="University at Buffalo" src="https://www.buffalo.edu/v-e541efb31faa2518c910054a542e1234/etc.clientlibs/wci/components/block/fatfooter/clientlibs/resources/ub-logo-one-line.png" style="height: 40px; margin-bottom: 15px;"/>
+</a>
+<p>© 2026 Justin Del Vecchio | <a href="https://www.buffalo.edu/ai-data-science.html">Computer Science and Engineering</a></p>
+</footer>
+</body>
+</html>

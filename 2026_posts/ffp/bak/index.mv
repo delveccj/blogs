@@ -1,0 +1,60 @@
+# How the Government Could Use Prize Challenges to Spur True Agentic AI Innovation
+
+**August 10, 2026 — AI · Agentic AI**
+
+Prize-based acquisition isn't new. It's a neat approach. MITRE has argued for years that challenge-based acquisition beats the traditional single-performer RFP model.[4] NASA's Center of Excellence for Collaborative Innovation has run crowdsourced problem-solving for over a decade.[5] And DARPA's AI Cyber Challenge just proved, at real scale, that a government-run AI prize competition can produce working autonomous software.[6] This post is about the one variable none of those programs touched: the price. What it has nottried is setting the prize deliberately below what a conventional bid would cost — and using that gap to find out what agentic AI teams can actually do.
+
+## The Pilot Project
+
+Here is the setup.  The government establishes a pilot project. The project contains a set of open source, unclassified software needs framed as prize challenges. The needs are defined by government analysts and software engineers. They minimally contain the following:
+
+- An open source data set of interest (at least initially),
+- A set of use cases and requirements for software that uses the data,
+- A cloud environment developers may work in,
+- A limited budget via OpenRouter for any model developers wish to use,
+- An API and interfaces for the developed software,
+- A set of unit and functional tests,
+- A target deployment environment (the hardware, processor, etc.) where the finished product will live,
+- Target performance metrics,
+- Security tests and harnesses, and
+- A hidden evaluation set to test against.
+
+Here's the last piece: the prize, set deliberately low. If the honest estimate is $250K even with agentic AI, the prize is $150K — 40% under.
+
+That's not the standard "prizes are cheaper than contracts" argument — MITRE and NASA already made that case well.[4] This is a narrower, specific bet: that agentic AI has already cut the cost of building working software by more than the market has priced in, and the fastest way to find out by how much is to dare a team to prove it under a number that makes conventional estimators uncomfortable.  Note, the pilot projects really need to have those attributes listed above well defined and clear!
+
+This sort of looks like a firm-fixed-price (FFP) contract, but it isn't. Under FAR 16.202-1, an FFP contract sets a price and awards it to a contractor, who then bears the cost and profit risk.[1] Here, teams do the work before they know they'll be paid — the government pays for demonstrated success, not a promise to perform.
+
+The mechanism for this already exists in federal law. Under 15 U.S.C. § 3719, agencies may run "point solution prizes" that reward a solution to a well-defined problem, with the amount and selection criteria published up front.[2]
+
+Another benefit, the government doesn't need to predict which kind of organization can build the software — a prime contractor, a startup, a university lab, or three engineers who've never worked together but know how to orchestrate agentic AI well. Traditional development carries the cost structure of whoever delivers it: management, overhead, proposal teams. A prize challenge lets a completely different production model compete on the same terms, and the tests — not the pedigree — decide who wins.
+
+## Fueling Agentic AI Workflows
+
+AIxCC is probably the closest precedent to what is proposed above.  DARPA spent two years and $29.5M asking whether AI could autonomously find and patch vulnerabilities — a genuinely open capability question, funded generously because the answer was unknown.[6]
+
+This pilot points the other way. It doesn't fund a team generously to push the frontier; it underfunds a team on purpose, against a boring, well-understood requirement, to see what people can do with AI that already exists.  This tests the labor model — and it's a cheap experiment to run, since it needs no multi-year program, just an agency willing to lowball the reward and see who shows up.
+
+The prize authority already exists. The technology already exists. What's missing is an agency willing to set the number lower than anyone thinks is reasonable, and find out who was right.  
+
+If you have read this far, you have probably met or managed a bunch of creative engineers who thrive in constrined environments.  They typically make it work.  My bet, these same people would make this apporach sing.
+
+## References
+
+1. **FAR 16.202-1 — Firm-Fixed-Price Contracts, Description** — Federal Acquisition Regulation  
+https://www.acquisition.gov/far/16.202-1
+
+2. **15 U.S.C. § 3719 — Prize Competitions** — United States Code, Stevenson-Wydler Technology Innovation Act  
+https://uscode.house.gov/view.xhtml?req=(title:15%20section:3719%20edition:prelim)
+
+3. **America COMPETES Reauthorization Act of 2010 (P.L. 111-358)** — authorized the head of any federal agency to carry out prize competitions to stimulate innovation  
+https://www.congress.gov/crs-product/R45271
+
+4. **Prizes and Challenge-Based Acquisition** — The MITRE Corporation, 2016  
+https://www.mitre.org/sites/default/files/publications/6-prizes-and-challenge-based-acquisition.pdf
+
+5. **NASA Center of Excellence for Collaborative Innovation (CoECI)** — helps federal agencies turn mission problems into crowdsourced prize competitions  
+https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/center-of-excellence-for-collaborative-innovation-coeci/federal-agencies/
+
+6. **AI Cyber Challenge Marks Pivotal Inflection Point for Cyber Defense** — DARPA, August 2025  
+https://www.darpa.mil/news/2025/aixcc-results

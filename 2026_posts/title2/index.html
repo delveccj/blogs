@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title II Compliance and AI-Driven Document Remediation | Justin Del Vecchio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ub-blue: #005BBB;
+            --ub-blue-dark: #003d7a;
+            --ub-blue-light: #e8f1fa;
+            --ub-gold: #FFB81C;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555;
+            --text-muted: #888;
+            --bg-white: #ffffff;
+            --bg-light: #f8f9fa;
+            --border-light: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: var(--ub-blue);
+            color: white;
+            padding: 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .ub-logo-link {
+            display: flex;
+            align-items: center;
+        }
+
+        .ub-logo {
+            height: 50px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .site-title {
+            font-family: 'Source Serif 4', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .site-title a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-title span {
+            color: var(--ub-gold);
+        }
+
+        .header-subtitle {
+            font-size: 0.85rem;
+            opacity: 0.85;
+            margin-top: 2px;
+        }
+
+        .header-nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        .header-nav a:hover {
+            opacity: 1;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        /* Article Layout */
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 40px;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--ub-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .back-link::before {
+            content: '← ';
+        }
+
+        /* Article Header */
+        .article-header {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-light);
+            background: transparent;
+        }
+
+        .article-header h1 {
+            font-family: 'Source Serif 4', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .article-meta .tag {
+            display: inline-block;
+            background: var(--ub-blue);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+
+        /* Article Content */
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .article-content p {
+            margin-bottom: 1.5em;
+        }
+
+        .article-content .lead {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #444;
+            font-style: italic;
+        }
+
+        .article-content h2 {
+            font-family: 'Source Serif 4', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 2em;
+            margin-bottom: 0.8em;
+            padding-top: 1em;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .article-content h3 {
+            font-family: 'Source Serif 4', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 1.5em;
+            margin-bottom: 0.6em;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin-bottom: 1.5em;
+            padding-left: 1.5em;
+        }
+
+        .article-content li {
+            margin-bottom: 0.5em;
+        }
+
+        .article-content a {
+            color: var(--ub-blue);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            color: var(--ub-blue-dark);
+        }
+
+        .article-content code {
+            background: var(--bg-light);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+        }
+
+        .article-content pre {
+            background: var(--text-primary);
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 1.5em;
+        }
+
+        .article-content pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+
+        .article-content blockquote {
+            background-color: #f9f9f9;
+            border-left: 4px solid var(--ub-gold);
+            padding: 16px 24px;
+            margin: 1.5em 0;
+            font-style: italic;
+            color: var(--text-muted);
+        }
+
+        .article-content blockquote p {
+            margin-bottom: 0;
+        }
+
+        .article-content .note {
+            background-color: var(--ub-blue-light);
+            border-left: 4px solid var(--ub-blue);
+            padding: 16px 20px;
+            margin: 1.5em 0;
+            font-size: 1rem;
+        }
+
+        .article-content .note p {
+            margin-bottom: 0;
+        }
+
+        .article-content .closing {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-top: 2em;
+            padding: 24px;
+            background: linear-gradient(135deg, #fef9e7 0%, #fdf2d0 100%);
+            border-radius: 8px;
+        }
+
+        .article-content .closing p {
+            margin-bottom: 0;
+        }
+
+        .article-content sup a {
+            font-size: 0.8em;
+            text-decoration: none;
+            color: var(--ub-blue);
+        }
+
+        .article-content sup a:hover {
+            text-decoration: underline;
+        }
+
+        .article-content .references {
+            margin-top: 3em;
+            padding-top: 2em;
+            border-top: 2px solid var(--border-light);
+        }
+
+        .article-content .references h2 {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 0;
+        }
+
+        .article-content .references ol {
+            list-style-position: outside;
+            padding-left: 24px;
+        }
+
+        .article-content .references li {
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .article-content .references a {
+            word-break: break-all;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--ub-blue-dark);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.85rem;
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: var(--ub-gold);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive - Tablets */
+        @media (max-width: 900px) {
+            .header-content {
+                padding: 15px 20px;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-left {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .ub-logo {
+                height: 40px;
+            }
+
+            .header-nav {
+                margin-top: 15px;
+            }
+
+            .header-nav a {
+                margin: 0 15px;
+            }
+
+            .article-container {
+                padding: 30px 20px;
+            }
+
+            .article-header h1 {
+                font-size: 2rem;
+            }
+
+            .article-content .lead {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-left">
+                <a href="https://www.buffalo.edu/" class="ub-logo-link">
+                    <img src="https://www.buffalo.edu/content/www/brand/resources-tools/downloads/_jcr_content/par/image.img.209.auto.png/1660936569132.png" alt="University at Buffalo" class="ub-logo">
+                </a>
+                <div class="header-text">
+                    <div class="site-title"><a href="../../index.html">Justin Del Vecchio<span>.</span></a></div>
+                    <div class="header-subtitle">Computer Science and Engineering</div>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <a href="../../index.html">Home</a>
+                <a href="#">About</a>
+                <a href="#">Research</a>
+                <a href="../../index.html#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <article class="article-container">
+        <a href="../../index.html" class="back-link">Back to all posts</a>
+
+        <header class="article-header">
+            <h1>Title II Compliance and AI-Driven Document Remediation</h1>
+            <div class="article-meta">
+                July 6, 2026
+                <span class="tag">AI</span>
+                <span class="tag">Title II</span>
+                <span class="tag">Accessibility</span>
+            </div>
+        </header>
+
+        <div class="article-content">
+            <p class="lead">This post focuses upon Title II accessibility. It documents a real-world problem and proposes novel and computationally repeatable applications of AI to solve it. The application exists as an open source project that employs LangGraph and OpenRouter to convert LaTeX beamer documents to Typst. In part, it was inspired by UB CATT<sup><a href="#ref-5">[5]</a></sup> and Angela Thering,<sup><a href="#ref-6">[6]</a></sup> an accessibility pro focused upon Title II remediation. There are many concepts covered in this post. The references section at the bottom provides additional reading.</p>
+
+            <h2>What is Title II?</h2>
+
+            <p>A requirement for all universities is providing content that is Title II compliant.<sup><a href="#ref-1">[1]</a></sup> Compliance augments course content with accessibility hooks. For example, an accessible PDF file will have a set of embedded tags, as though sections of text have been highlighted. The tags model the document's structural elements, such as its sections, figures, and appendices. The tags are the guide posts for accessibility tools. They provide a navigable model for screen reader tools.<sup><a href="#ref-2">[2]</a></sup> Often, they provide alternative text that describes the visual semantics of a figure, an equation, or a table. In a nutshell, they provide the critical content and context to make course material accessible to all.</p>
+
+            <p>A Title II challenge is the sheer volume of document types that require what is called remediation. This is the act of adding tags for accessibility tools where none existed before. Word files, PowerPoint or Keynote, and PDFs all need the incorporation of accessibility tags. PDF is particularly problematic. It is highly focused on visual presentation of content. The use of tags to provide accessibility is not native to the format. Commercial companies like Adobe<sup><a href="#ref-7">[7]</a></sup><sup><a href="#ref-8">[8]</a></sup> and Microsoft<sup><a href="#ref-9">[9]</a></sup> have the personnel to add tag functionality to software products. But what about the LaTeX community? How have they proceeded? For those unfamiliar with LaTeX, here is a brief primer: think HTML markup focused on producing PDFs for journal or conference submissions.<sup><a href="#ref-10">[10]</a></sup></p>
+
+            <h2>Open Source LaTeX Title II Compliance</h2>
+
+            <p>The LaTeX community has banded together to solve many of the accessibility tagging challenges. One only needs to consult the <strong>tagpdf</strong> project<sup><a href="#ref-11">[11]</a></sup> for an example. It represents a monumental effort by dedicated individuals who live and breathe accessibility. tagpdf supplies most of what the LaTeX community needs to generate Title II compliant documents.<sup><a href="#ref-12">[12]</a></sup> Without this project and the work of tagpdf, the LaTeX community would be lost. However, one problem remains: a particular LaTeX PDF document class called <strong>beamer</strong>. Think of it as PowerPoint or Keynote but with niceties geared for academic quality presentations. There is simply no support team working to make the beamer format compliant; it is too hard.</p>
+
+            <p>Imagine you are a professor with dozens or hundreds of LaTeX beamer presentations. Your options are not promising. You may switch to another format supported by LaTeX called <strong>ltxtalk</strong><sup><a href="#ref-13">[13]</a></sup> or switch entirely to another typesetting environment called <strong>Typst</strong>.<sup><a href="#ref-14">[14]</a></sup><sup><a href="#ref-15">[15]</a></sup> Neither is a silver bullet solution and requires a great deal of manual effort. In this instance, a silver bullet would be "Change this one line, add this package, and presto, the document is Title II compliant." This is somewhat how tagpdf works.</p>
+
+            <h2>Human Guided AI Remediation</h2>
+
+            <p>Here, certainly, is an opportunity for AI and LLMs to come to the rescue. A legitimate, real, and useful opportunity! This idea was developed collaboratively with my researcher <strong>Sushrut Gaikwad</strong>.<sup><a href="#ref-16">[16]</a></sup> Anyone who is in need of an AI and math savvy researcher or employee can find no finer than Sushrut.</p>
+
+            <p>The open source project powering this work is available on GitHub at <a href="https://github.com/SushrutGaikwad/b2t" target="_blank">https://github.com/SushrutGaikwad/b2t</a>. The repository contains the full LangGraph implementation, setup instructions, and examples to get started.</p>
+
+            <p>Here is the idea:</p>
+
+            <ol>
+                <li>We utilize <strong>LangGraph</strong>.<sup><a href="#ref-3">[3]</a></sup> This framework has the potential (just potential right now, the next few years will be telling) to allow program development as graph structures.</li>
+                <li>We define a graph structure that allows the user to point to a directory of beamer files as input. Its output node (ideally) provides <strong>Typst</strong> equivalent files.<sup><a href="#ref-14">[14]</a></sup> Typst has the same terrific typesetting qualities of LaTeX but natively generates Title II compliant PDFs.</li>
+                <li>The graph nodes represent computation steps. Think of each node as its own software program. The first set of nodes prepares the beamer files for AI and LLM processing.</li>
+                <li>There is a critical node that includes an LLM agent. The choice of agent is yours! It uses <strong>OpenRouter</strong>.<sup><a href="#ref-4">[4]</a></sup> Note: this is the part where you will need an API key for one of the LLMs. A key with $10 of funds will be more than enough to experiment with, probably too much.</li>
+                <li>This LLM node translates a beamer document into a (hopefully) equivalent Typst document. The step can be tuned so it is computationally repeatable: given the same beamer document, the same Typst document is output.</li>
+                <li>There are steps for manual intervention as well. Users are equal partners in this endeavor. They get an opportunity to look at each slide created. They make changes where they feel it is warranted. Also, there may be errors in the conversion process. Users will need to fix these.</li>
+            </ol>
+
+            <p>The project is offered as open source with an Apache license. It is not perfect. It has issues. At times it requires a good deal of manual intervention. However, it is continually getting better. It is also a start. Our team welcomes any feedback or assistance from anyone who wishes to help out. Also, if you wish to learn LangGraph with a challenging application, this is a perfect challenge.</p>
+
+            <div class="closing">
+                <p>As updates are warranted, we will do more posts!</p>
+            </div>
+
+            <div class="references">
+                <h2>References</h2>
+                <ol>
+                    <li id="ref-1">
+                        <strong>ADA Title II – 2024 Web Accessibility Final Rule (DOJ Fact Sheet)</strong><br>
+                        <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank">https://www.ada.gov/resources/2024-03-08-web-rule/</a>
+                    </li>
+                    <li id="ref-2">
+                        <strong>ADA Title II Regulations (28 CFR Part 35)</strong><br>
+                        <a href="https://www.ada.gov/law-and-regs/regulations/title-ii-2010-regulations/" target="_blank">https://www.ada.gov/law-and-regs/regulations/title-ii-2010-regulations/</a>
+                    </li>
+                    <li id="ref-3">
+                        <strong>LangGraph Documentation</strong><br>
+                        <a href="https://langchain-ai.github.io/langgraph/" target="_blank">https://langchain-ai.github.io/langgraph/</a>
+                    </li>
+                    <li id="ref-4">
+                        <strong>OpenRouter</strong><br>
+                        <a href="https://openrouter.ai" target="_blank">https://openrouter.ai</a>
+                    </li>
+                    <li id="ref-5">
+                        <strong>University at Buffalo Center for Assistive Technology (UB CATT)</strong><br>
+                        <a href="https://www.buffalo.edu/catt.html" target="_blank">https://www.buffalo.edu/catt.html</a>
+                    </li>
+                    <li id="ref-6">
+                        <strong>Angela Thering, Ph.D. – LinkedIn</strong><br>
+                        <a href="https://www.linkedin.com/in/acthering" target="_blank">https://www.linkedin.com/in/acthering</a>
+                    </li>
+                    <li id="ref-7">
+                        <strong>Adobe Acrobat – Creating Accessible PDFs</strong><br>
+                        <a href="https://helpx.adobe.com/acrobat/using/creating-accessible-pdfs.html" target="_blank">https://helpx.adobe.com/acrobat/using/creating-accessible-pdfs.html</a>
+                    </li>
+                    <li id="ref-8">
+                        <strong>Adobe PDF Accessibility Auto-Tag API</strong><br>
+                        <a href="https://developer.adobe.com/document-services/apis/pdf-accessibility-auto-tag/" target="_blank">https://developer.adobe.com/document-services/apis/pdf-accessibility-auto-tag/</a>
+                    </li>
+                    <li id="ref-9">
+                        <strong>Microsoft 365 – Create Accessible PDFs</strong><br>
+                        <a href="https://support.microsoft.com/en-us/accessibility/office-accessibility/create-accessible-pdfs" target="_blank">https://support.microsoft.com/en-us/accessibility/office-accessibility/create-accessible-pdfs</a>
+                    </li>
+                    <li id="ref-10">
+                        <strong>Learn LaTeX (Official LaTeX Project Primer)</strong><br>
+                        <a href="https://www.learnlatex.org/" target="_blank">https://www.learnlatex.org/</a>
+                    </li>
+                    <li id="ref-11">
+                        <strong>tagpdf Project (LaTeX PDF Tagging) – GitHub</strong><br>
+                        <a href="https://github.com/latex3/tagpdf" target="_blank">https://github.com/latex3/tagpdf</a>
+                    </li>
+                    <li id="ref-12">
+                        <strong>LaTeX Project – Tagged PDF Documentation</strong><br>
+                        <a href="https://latex-project.org/publications/indexbytopic/pdf/" target="_blank">https://latex-project.org/publications/indexbytopic/pdf/</a>
+                    </li>
+                    <li id="ref-13">
+                        <strong>ltxtalk Document Class – CTAN</strong><br>
+                        <a href="https://ctan.org/pkg/ltxtalk" target="_blank">https://ctan.org/pkg/ltxtalk</a>
+                    </li>
+                    <li id="ref-14">
+                        <strong>Typst</strong><br>
+                        <a href="https://typst.app/" target="_blank">https://typst.app/</a>
+                    </li>
+                    <li id="ref-15">
+                        <strong>Typst Documentation</strong><br>
+                        <a href="https://typst.app/docs/" target="_blank">https://typst.app/docs/</a>
+                    </li>
+                    <li id="ref-16">
+                        <strong>Sushrut Ishwar Gaikwad – LinkedIn</strong><br>
+                        <a href="https://www.linkedin.com/in/sushrutgaikwad" target="_blank">https://www.linkedin.com/in/sushrutgaikwad</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <a href="https://www.buffalo.edu/">
+            <img src="https://www.buffalo.edu/v-e541efb31faa2518c910054a542e1234/etc.clientlibs/wci/components/block/fatfooter/clientlibs/resources/ub-logo-one-line.png" alt="University at Buffalo" style="height: 40px; margin-bottom: 15px;">
+        </a>
+        <p>&copy; 2026 Justin Del Vecchio | <a href="https://www.buffalo.edu/ai-data-science.html">Computer Science and Engineering</a></p>
+    </footer>
+</body>
+</html>

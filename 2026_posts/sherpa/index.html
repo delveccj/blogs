@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Agents: Unwitting Guides in a Quest for Knowledge | Justin Del Vecchio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ub-blue: #005BBB;
+            --ub-blue-dark: #003d7a;
+            --ub-blue-light: #e8f1fa;
+            --ub-gold: #FFB81C;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555;
+            --text-muted: #888;
+            --bg-white: #ffffff;
+            --bg-light: #f8f9fa;
+            --border-light: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: var(--ub-blue);
+            color: white;
+            padding: 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .ub-logo-link {
+            display: flex;
+            align-items: center;
+        }
+
+        .ub-logo {
+            height: 50px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .site-title {
+            font-family: 'Source Serif 4', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .site-title a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .site-title span {
+            color: var(--ub-gold);
+        }
+
+        .header-subtitle {
+            font-size: 0.85rem;
+            opacity: 0.85;
+            margin-top: 2px;
+        }
+
+        .header-nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        .header-nav a:hover {
+            opacity: 1;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        /* Article Layout */
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 40px;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--ub-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .back-link::before {
+            content: '\2190 ';
+        }
+
+        /* Article Header */
+        .article-header {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-light);
+            background: transparent;
+        }
+
+        .article-header h1 {
+            font-family: 'Source Serif 4', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .article-meta .tag {
+            display: inline-block;
+            background: var(--ub-blue);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+
+        /* Article Content */
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .article-content p {
+            margin-bottom: 1.5em;
+        }
+
+        .article-content .lead {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #444;
+            font-style: italic;
+        }
+
+        .article-content h2 {
+            font-family: 'Source Serif 4', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 2em;
+            margin-bottom: 0.8em;
+            padding-top: 1em;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .article-content h3 {
+            font-family: 'Source Serif 4', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 1.5em;
+            margin-bottom: 0.6em;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin-bottom: 1.5em;
+            padding-left: 1.5em;
+        }
+
+        .article-content li {
+            margin-bottom: 0.5em;
+        }
+
+        .article-content a {
+            color: var(--ub-blue);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .article-content a:hover {
+            color: var(--ub-blue-dark);
+        }
+
+        .article-content code {
+            background: var(--bg-light);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+        }
+
+        .article-content pre {
+            background: var(--text-primary);
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 1.5em;
+        }
+
+        .article-content pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+
+        .article-content blockquote {
+            background-color: #f9f9f9;
+            border-left: 4px solid var(--ub-gold);
+            padding: 16px 24px;
+            margin: 1.5em 0;
+            font-style: italic;
+            color: var(--text-muted);
+        }
+
+        .article-content blockquote p {
+            margin-bottom: 0;
+        }
+
+        .article-content .note {
+            background-color: var(--ub-blue-light);
+            border-left: 4px solid var(--ub-blue);
+            padding: 16px 20px;
+            margin: 1.5em 0;
+            font-size: 1rem;
+        }
+
+        .article-content .note p {
+            margin-bottom: 0;
+        }
+
+        .article-content .closing {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-top: 2em;
+            padding: 24px;
+            background: linear-gradient(135deg, #fef9e7 0%, #fdf2d0 100%);
+            border-radius: 8px;
+        }
+
+        .article-content .closing p {
+            margin-bottom: 0;
+        }
+
+        .article-content .references {
+            margin-top: 3em;
+            padding-top: 2em;
+            border-top: 2px solid var(--border-light);
+        }
+
+        .article-content .references h2 {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 0;
+        }
+
+        .article-content .references ol {
+            list-style-position: outside;
+            padding-left: 24px;
+        }
+
+        .article-content .references li {
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .article-content .references a {
+            word-break: break-all;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--ub-blue-dark);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.85rem;
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: var(--ub-gold);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive - Tablets */
+        @media (max-width: 900px) {
+            .header-content {
+                padding: 15px 20px;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-left {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .ub-logo {
+                height: 40px;
+            }
+
+            .header-nav {
+                margin-top: 15px;
+            }
+
+            .header-nav a {
+                margin: 0 15px;
+            }
+
+            .article-container {
+                padding: 30px 20px;
+            }
+
+            .article-header h1 {
+                font-size: 2rem;
+            }
+
+            .article-content .lead {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-left">
+                <a href="https://www.buffalo.edu/" class="ub-logo-link">
+                    <img src="https://www.buffalo.edu/content/www/brand/resources-tools/downloads/_jcr_content/par/image.img.209.auto.png/1660936569132.png" alt="University at Buffalo" class="ub-logo">
+                </a>
+                <div class="header-text">
+                    <div class="site-title"><a href="../../index.html">Justin Del Vecchio<span>.</span></a></div>
+                    <div class="header-subtitle">Computer Science and Engineering</div>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <a href="../../index.html">Home</a>
+                <a href="#">About</a>
+                <a href="#">Research</a>
+                <a href="../../index.html#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <article class="article-container">
+        <a href="../../index.html" class="back-link">Back to all posts</a>
+
+        <header class="article-header">
+            <h1>Chat Agents: Unwitting Guides in a Quest for Knowledge</h1>
+            <div class="article-meta">
+                July 20, 2026
+                <span class="tag">AI</span>
+                <span class="tag">Learning</span>
+                <span class="tag">LLMs</span>
+            </div>
+        </header>
+
+        <div class="article-content">
+            <p class="lead">This blog was inspired by all the folks who rely on chat agents as their primary learning resource when trying to understand a new concept. It can be a dangerous practice.</p>
+
+            <p>One should use LLMs and chat agents warily when learning a new topic. They should not be the first authority consulted. Instead, develop a decent mental model first, then consult the chat agent to refine or expand points. Note, this is a very different endeavor than instructing a chat agent to "Give me the mailing address of the NBA" or "Write me a Python script that opens, reads, and prints to screen its contents." These are simple, one-shot, short-form information retrieval needs. They are not remotely similar to making a request such as "Teach me how catalogs work in Databricks." The latter depends a great deal on the expertise of the person asking the question. It is the long-form essay, not the short answer.</p>
+
+            <h2>Unwitting Guides</h2>
+
+            <p>Say you do make a request to learn a topic using a chat agent. In this quest to learn, your chat agent is a wholly unwitting guide. A sherpa who lacks a reliable mental model of your skill level, your true needs, or your life experiences.</p>
+
+            <p>Think of it like this. Imagine your quest to learn a new topic is akin to summiting a 12,000-foot mountain. Mastery is when you have reached the top of the mountain. There are paths of differing complexity and completeness to get one to the top. Each path will work for some folks learning the topic, but no single path will work for everyone or satisfy everyone.</p>
+
+            <p>However, Chat Sherpa will lead you up the mountain. It has no reliable mental model of your skills, your life experiences, or how you learn best. It generates a response one token at a time, repeatedly predicting the most probable next token based on patterns learned during training, your prompt, the surrounding context, and earlier parts of the conversation. And there you have it. The state of the art in language generation, circa 2026!</p>
+
+            <h2>The Missing Pieces</h2>
+
+            <p>It actually gets worse when you consider the following. Chat Sherpa has created a path for you that may be too shallow, too advanced, omit critical prerequisites, or emphasize details that are not the ones you actually needed. You are left to discover:</p>
+
+            <ol>
+                <li>The difficult paths, the rough ones that are not optimized for you.</li>
+                <li>The missing parts.</li>
+            </ol>
+
+            <p>At that point, learning a new topic takes many of these general prompts:</p>
+
+            <blockquote>
+                <p>"So... what does that mean?"</p>
+            </blockquote>
+
+            <blockquote>
+                <p>"Wait, what about this part you mentioned? How does it fit in?"</p>
+            </blockquote>
+
+            <blockquote>
+                <p>"Hold on, you just said X earlier and now you tell me Y. Why did you leave out Y? It's an important detail and, in some cases, it helps to refute X!"</p>
+            </blockquote>
+
+            <p>You are left to interrogate the Chat Sherpa and flesh out the finer aspects of your mental model about the topic. Did Chat Sherpa really tell you everything you need to know to master the topic? What did it assume you already knew that you did not? How complete is this picture of the topic? How do you trust it?</p>
+
+            <p>The paradox is that asking good questions requires knowing enough about the topic to recognize what is missing. Beginners are the least equipped to identify those gaps, which makes them the most likely to accept an incomplete explanation as a complete one. If you are new to a topic, this is a dangerous spot to be in. If you are not adept at asking the right questions or writing the right prompts, you could leave with a wholly incomplete or incorrect mental model of how a topic works.</p>
+
+            <h2>The Advice</h2>
+
+            <p>The advice is simple. If you are new to a topic, form your own mental model first before asking a chat agent. Use as many human-created and vetted resources as possible. Read blog posts, read documentation, watch tutorials. Obtain content designed by a human specifically meant for consumption by a human. Do not rely on the chat agent to do the work of constructing a mental model for you—it is your job. Use the chat agent to help refine your model after you have developed it.</p>
+
+            <div class="closing">
+                <p>Build your mental model first. Let the chat agent refine it, not build it.</p>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <a href="https://www.buffalo.edu/">
+            <img src="https://www.buffalo.edu/v-e541efb31faa2518c910054a542e1234/etc.clientlibs/wci/components/block/fatfooter/clientlibs/resources/ub-logo-one-line.png" alt="University at Buffalo" style="height: 40px; margin-bottom: 15px;">
+        </a>
+        <p>&copy; 2026 Justin Del Vecchio | <a href="https://www.buffalo.edu/ai-data-science.html">Computer Science and Engineering</a></p>
+    </footer>
+</body>
+</html>

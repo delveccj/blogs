@@ -1,0 +1,37 @@
+# Chat Agents: Unwitting Guides in a Quest for Knowledge
+
+This blog was inspired by all the folks who rely on chat agents as their primary learning resource when trying to understand a new concept. Or rather, the dangerous way. One should use LLMs and chat agents warily. They should not be the first authority consulted. Instead, develop a decent mental model first, then consult the chat agent to refine or expand points. Note, this is a very different endeavor than instructing a chat agent to "Give me the mailing address of the NBA" or "Write me a Python script that opens and reads a file." These are simple, one-shot, short-form information retrieval needs. They are not remotely similar to making a request such as "Teach me how catalogs work in Databricks." The latter depends a great deal on the expertise of the person asking the question. It is the long-form essay, not the short answer.
+
+## Unwitting Guides
+
+Say you do make a request to learn a topic using a chat agent. In this quest to learn, your chat agent is a wholly unwitting guide. A sherpa who lacks a reliable mental model of your skill level, your true needs, or your life experiences.
+
+Think of it like this. Imagine your quest to learn a new topic is akin to summiting a 12,000-foot mountain. Mastery is when you have reached the top of the mountain. There are paths of differing complexity and completeness to get one to the top. Each path will work for some folks learning the topic, but no single path will work for everyone or satisfy everyone.
+
+However, Chat Sherpa will lead you up the mountain. It has no reliable mental model of your skills, your life experiences, or how you learn best. It generates a response one token at a time, repeatedly predicting the most probable next token based on patterns learned during training, your prompt, the surrounding context, and earlier parts of the conversation. And there you have it. The state of the art in language generation, circa 2026!
+
+## The Missing Pieces
+
+It actually gets worse when you consider the following. Chat Sherpa has created a path for you that may be too shallow, too advanced, omit critical prerequisites, or emphasize details that are not the ones you actually needed. You are left to discover:
+
+1. The difficult paths, the rough ones that are not optimized for you.
+2. The missing parts.
+
+These are the difficult parts; the details Chat Sherpa leaves out because you did not know to ask for them.
+
+At that point, learning a new topic takes many of these general prompts:
+
+> "So... what does that mean?"
+
+> "Wait, what about this? How does that fit in?"
+
+> "Hold on, you just said X earlier and now you tell me Y. Why did you leave out Y? It's an important detail and, in some cases, it helps to refute X!"
+
+You are left to interrogate the Chat Sherpa and flesh out the finer aspects of your mental model about the topic. Did Chat Sherpa really tell you everything you need to know to master the topic? What did it assume you already knew that you did not? How complete is this picture of the topic? How do you trust it?
+
+The paradox is that asking good questions requires knowing enough about the topic to recognize what is missing. Beginners are the least equipped to identify those gaps, which makes them the most likely to accept an incomplete explanation as a complete one. If you are new to a topic, this is a dangerous spot to be in. If you are not adept at asking the right questions or writing the right prompts, you could leave with a wholly incomplete or incorrect mental model of how a topic works.
+
+## The Advice
+
+The advice is simple. If you are new to a topic, form your own mental model first before asking a chat agent. Use as many human-created and vetted resources as possible. Read blog posts, read documentation, watch tutorials. Obtain content designed by a human specifically meant for consumption by a human. Do not rely on the chat agent to do the work of constructing a mental model for you—it is your job. Use the chat agent to help refine your model after you have developed it.
+

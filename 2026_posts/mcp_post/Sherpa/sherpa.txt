@@ -1,5 +1,24 @@
 Chat Agents: Unwitting Guides in a Quest for Knowledge
 
-This blog was inspired by all the folks who use chat agents the incorrect way when learning a concept.  Or better, the dangerous way.  One should use LLMs and chat agents warily.  They should be a last resort, consulted only after a person has tried to learn as much as possible indepedendently.  Develop a decent mental model first, then consult the chat agent to refine or expand points.
+This blog was inspired by all the folks who use chat agents the incorrect way when learning a concept.  Or better, the dangerous way.  One should use LLMs and chat agents warily.  They should be a last resort, consulted only after a person has tried to learn as much as possible indepedendently.  Develop a decent mental model first, then consult the chat agent to refine or expand points.  Note, this is a very different endeavor than instructing a chat agent to "Give me the mailing address of the NBA" or "Write me a python script that opens and reads a file."  These are simple, one shot, short form information retrieval needs.  They are not remotely similar making a request such as "Teach me how catalogs work in Databricks."  The latter depends a lot on the the expertise of the user who asks the question.  It is the long form essay, not the short answer.
+
+Unwitting Guides
+Say you do make a request to learn a topic using a chat agent.  In this quest to learn, your chat agent is a wholly unwitting guide.  A sherpa who understands absolutely zero about you, your skill levels, your true needs, or life experiences.
+
+Think of it like this.  Imagine your quest is to learn a new topic is akin to summiting a 12,000 foot mountain.  Mastery is when you have reached the top of the mountain.  There are paths of differing complexity and completeness to get one to the top.  Each path will work for some folks learning the topic but no single path will work for all or make all satistifed.   
+
+However, chat sherpa will lead you up the mountain.  It knows nothing about you.  Your skills, your life experiences, how you learn best.  It generates a response one token at a time, repeatedly predicting the most probable next token based on patterns learned during training, your prompt, the surrounding context, and earlier parts of the conversation. And there you have it.  The state of the art in learning circa 2026!
+
+It actually gets worse when you consider the following.  Chat sherpa has created a path for you that is likely difficult and, in places, woefully incomplete.   You are left to discover:  1. The difficult paths, the rough ones that are not optimized fo you, and 2. The missing parts.  These are the difficult parts; the details chat sherpa leaves out because you did not know to add the keywords to 'prompt' it to provide those details.
+
+At that point learning a new topic takes many of these general prompts:
+
+"So ... what does that mean?"
+"Wait, what about this? How does that fit in?"
+"Hold on, you just said X earlier and now you tell me Y.  Why did you leave out Y? It's an important detail and in some cases, it helps to refute X!"
+
+You are left to interrogate the chat sherpa and flesh out the finer aspects of your mental model about the topic.  Did chat sherpa really tell you everything you need to know to master the topic?  What did it assume you knew that you did not?  How complete is this picture of the topic?  How do you trust it?  If you are new a topic, this is a dangerous spot to be in.  If you are not adept at asking the right question or prompts, you could leave with a wholly incomplete or incorrect mental model of how a topic works.
+
+The advice is simple.  If you are new to a topic, form your own mental model first before asking a chat agent.  Use as many human created and vetted resources as possible.  Read blog posts, read documentation, watch tutorials.  Obtain content designed by a human specficially meant for consumption by a human.  Do not rely on the chat agent to do the work of constructing a mental model for you - it is your job.  Use the chat agent to help refine your model after you have developed it.   
 
 
